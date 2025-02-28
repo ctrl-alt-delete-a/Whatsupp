@@ -23,5 +23,16 @@ app.post("/save", (req, res) => {
 
 // Se till att endast en instans av servern körs
 if (!module.parent) {
+    app.get("/", (req, res) => {
+        res.send("Servern fungerar! 🚀");
+    });    
+    const path = require("path");
+
+// Servera statiska filer från den mapp där din HTML finns
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
     app.listen(PORT, () => console.log(`Servern körs på port ${PORT}`));
 }
