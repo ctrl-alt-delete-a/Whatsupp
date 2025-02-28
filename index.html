@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsupp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <p>Smeknamn:</p>
+        <input type="text" class="knapp" id="nickname">
+        <button class="donebutton" onclick="saveNickname()">Klar</button>
+    </div>
+
+    <script>
+        function saveNickname() {
+            const nickname = document.getElementById("nickname").value;
+
+            if (nickname.trim() === "") {
+                alert("Du måste skriva ett smeknamn!");
+                return;
+            }
+
+            fetch("http://localhost:3000/save", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ nickname: nickname })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = "chatapp.html"; // Byter sida efter sparning
+                } else {
+                    alert("Något gick fel. Försök igen!");
+                }
+            })
+            .catch(error => {
+                console.error("Fel:", error);
+                alert("Ett fel uppstod vid sparning.");
+            });
+        }
+    </script>
+</body>
+</html>

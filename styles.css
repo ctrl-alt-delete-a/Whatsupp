@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4; /* Ljusgrå bakgrund */
+    font-family: Arial, sans-serif;
+}
+
+/* Behåll allting i en centrerad container */
+.container {
+    text-align: center;
+}
+
+/* Gör texten större */
+p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Större input-fält */
+.knapp {
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid #00D26A;
+    border-radius: 5px;
+}
+
+/* Större grön knapp */
+.donebutton {
+    background-color: #00D26A;
+    color: white;
+    font-size: 24px; /* Större text */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Avstånd mellan input och knapp */
+    margin-left: 7.5px;
+}
+
+.donebutton:hover {
+    background-color: #00B55E;
+    cursor: pointer;
+}
