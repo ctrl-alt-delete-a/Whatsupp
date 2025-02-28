@@ -3,7 +3,7 @@ const fs = require("fs");
 const cors = require("cors");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json()); // Tillåter JSON-data i POST
 app.use(cors()); // Tillåter förfrågningar från frontend
