@@ -41,5 +41,8 @@ p {
 
 .donebutton:hover {
     background-color: #00B55E;
+}
+
+button:hover{
     cursor: pointer;
 }
